@@ -1,8 +1,8 @@
 name := "Course"
  
-version := "1.0" 
-      
-lazy val `course` = (project in file(".")).enablePlugins(PlayScala)
+version := "1.0"
+
+lazy val myProject = (project in file(".")).enablePlugins(PlayJava, PlayScala, PlayEbean)
 
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
       
@@ -12,6 +12,4 @@ scalaVersion := "2.12.2"
 
 libraryDependencies ++= Seq( jdbc , ehcache , ws , specs2 % Test , guice )
 
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
-
-      
+unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
